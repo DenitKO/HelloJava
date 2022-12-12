@@ -33,7 +33,6 @@ public class homework {
             {
             String line;
             while((line = br.readLine()) != null){
-                System.out.println(line);
                 if (line.split(" ")[0].equals("b"))
                     b = line.split(" ")[1];
                 if (line.split(" ")[0].equals("a"))
@@ -44,16 +43,13 @@ public class homework {
                 System.out.println(ex.getMessage());
             }
 
+            
         c = Exponentiation(Integer.parseInt(a), Integer.parseInt(b));
-        if (Float.isNaN(c))
-            System.out.println("не определено");
-        else
-            System.out.println(c);
 
 
         try (FileWriter fw = new FileWriter(fileOutput, false)) {
             if (Float.isNaN(c))
-                fw.write("не определено");
+                fw.write((String)"Not defined");
             else
                 fw.write(String.valueOf(c));
             fw.flush();
