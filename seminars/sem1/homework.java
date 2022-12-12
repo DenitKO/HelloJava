@@ -29,8 +29,7 @@ public class homework {
         String b = "";
         float c = 0;
 
-        try(BufferedReader br = new BufferedReader(new FileReader(fileInput)))
-            {
+        try(BufferedReader br = new BufferedReader(new FileReader(fileInput))){
             String line;
             while((line = br.readLine()) != null){
                 if (line.split(" ")[0].equals("b"))
@@ -39,44 +38,39 @@ public class homework {
                     a = line.split(" ")[1];
             }
             br.close();
-            } catch(IOException ex){
-                System.out.println(ex.getMessage());
-            }
+        } catch(IOException ex){
+            System.out.println(ex.getMessage());
+        }
 
-            
+
         c = Exponentiation(Integer.parseInt(a), Integer.parseInt(b));
 
 
-        try (FileWriter fw = new FileWriter(fileOutput, false)) {
+        try (FileWriter fw = new FileWriter(fileOutput, false)){
             if (Float.isNaN(c))
                 fw.write((String)"Not defined");
             else
                 fw.write(String.valueOf(c));
             fw.flush();
             fw.close();
-            } catch (IOException ex) {
-                System.out.println(ex.getMessage());
-            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
-    public static float Exponentiation(int digit, int degree)
-    {
+    public static float Exponentiation(int digit, int degree){
         int index = 1;
         int ExpDigit = digit;
-        if (degree > 0)
-        {
-            while (index < degree)
-            {
+        if (degree > 0){
+            while (index < degree){
                 ExpDigit=ExpDigit*digit;
                 index++;
             }
         return ExpDigit;
         }
-        if (degree < 0)
-        {
+        if (degree < 0){
             degree = degree * -1;
-            while (index < degree)
-            {
+            while (index < degree){
                 ExpDigit=ExpDigit*digit;
                 index++;
             }
