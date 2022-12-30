@@ -15,6 +15,11 @@ public class Main {
     System.out.println(infrastructure.getAllInfo(2));
     System.out.println(infrastructure.getAllInfo(3));
     System.out.println(infrastructure.getAllInfo(4));
+
+    ArrayList<String> result = infrastructure.findAll("особ");
+    for (String s : result) {
+      System.out.println(s);
+    }
   }
 }
 
@@ -37,6 +42,16 @@ class Infrastructure {
         c.name,
         db.genres.get(c.genre - 1).name,
         db.prod.get(c.filmProd - 1).titleName);
+  }
+
+  public ArrayList<String> findAll(String cinemaName) {
+    ArrayList<String> c = new ArrayList<>();
+    for (int i = 1; i < db.films.size(); i++) {
+      if (db.films.get(i).name.contains(cinemaName)){
+        c.add(db.films.get(i).name);
+      }
+    }
+    return c;
   }
 
   Db init() {
