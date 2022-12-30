@@ -16,7 +16,7 @@ public class Main {
     System.out.println(infrastructure.getAllInfo(3));
     System.out.println(infrastructure.getAllInfo(4));
 
-    String result = infrastructure.findAll("Особ");
+    String result = infrastructure.findAll("ве");
     System.out.println(result);
   }
 }
@@ -47,7 +47,7 @@ class Infrastructure {
     for (int i = 0; i < db.films.size(); i++) {
       String k = db.films.get(i).name;
       if (k.contains(cinemaName)){
-        c = c.concat(k);
+        c = c.concat(k).concat("; ");
       }
     }
     return c;
