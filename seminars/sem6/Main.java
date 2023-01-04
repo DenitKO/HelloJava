@@ -43,10 +43,11 @@ class Infrastructure {
   }
 
   public ArrayList<String> findAll(String cinemaName) {
-
     ArrayList<String> findered = new ArrayList<String>();
+    String k = "";
+    
     for (int i = 0; i < db.films.size(); i++) {
-      String k = db.films.get(i).name;
+      k = db.films.get(i).name;
       if (k.contains(cinemaName)){
         findered.add(k);
       }
